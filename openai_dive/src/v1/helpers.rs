@@ -8,6 +8,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 pub(crate) async fn check_status_code(
     result: reqwest::Result<Response>,
 ) -> Result<Response, APIError> {
+    println!("{:?}", result);
     match result {
         Ok(response) => {
             if response.status().is_client_error() {
